@@ -1,26 +1,92 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-emerald-deep: #0B3D2E;
+  --color-emerald: #1B5E3F;
+  --color-emerald-light: #2F7A57;
+  --color-emerald-gold: #C9A861;
+
+  --color-midnight-navy: #0F1729;
+  --color-midnight: #1A2438;
+  --color-midnight-silver: #B8C2D9;
+
+  --color-desert-sand: #E8DCC8;
+  --color-desert-beige: #D4C4A8;
+  --color-desert-brown: #8B6F47;
+
+  --color-moonlight-grey: #E5E7EB;
+  --color-moonlight-white: #FAFAFA;
+  --color-moonlight-blue: #A8C5E0;
+
+  --color-garden-olive: #6B7B4F;
+  --color-garden-emerald: #3D6B52;
+  --color-garden-cream: #F5F0E1;
+
+  --font-sans: var(--font-inter), sans-serif;
+  --font-serif: var(--font-playfair), serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--app-bg);
+  color: var(--app-text);
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(27, 94, 63, 0.2) transparent;
+}
+
+/* ===== THEME DEFINITIONS ===== */
+/* Each theme overrides the shared --app-* variables AND the emerald-deep / emerald-gold
+   tokens your components already use, so existing classes repaint automatically. */
+
+:root,
+[data-theme="emerald-sakinah"] {
+  --app-bg: #FAFAFA;
+  --app-text: #0B3D2E;
+  --color-emerald-deep: #0B3D2E;
+  --color-emerald: #1B5E3F;
+  --color-emerald-light: #2F7A57;
+  --color-emerald-gold: #C9A861;
+}
+
+[data-theme="midnight-reflection"] {
+  --app-bg: #0F1729;
+  --app-text: #E5E7EB;
+  --color-emerald-deep: #B8C2D9;
+  --color-emerald: #1A2438;
+  --color-emerald-light: #2A3650;
+  --color-emerald-gold: #8FA3C7;
+}
+
+[data-theme="desert-serenity"] {
+  --app-bg: #F5EFE3;
+  --app-text: #4A3A23;
+  --color-emerald-deep: #6B5436;
+  --color-emerald: #8B6F47;
+  --color-emerald-light: #A98B61;
+  --color-emerald-gold: #C9A861;
+}
+
+[data-theme="moonlight"] {
+  --app-bg: #F4F6F8;
+  --app-text: #2E3A4A;
+  --color-emerald-deep: #3D5A75;
+  --color-emerald: #5A7B9A;
+  --color-emerald-light: #7896B0;
+  --color-emerald-gold: #A8C5E0;
+}
+
+[data-theme="quranic-garden"] {
+  --app-bg: #F5F0E1;
+  --app-text: #3D4A2E;
+  --color-emerald-deep: #3D6B52;
+  --color-emerald: #6B7B4F;
+  --color-emerald-light: #87966B;
+  --color-emerald-gold: #B5A876;
 }
