@@ -57,3 +57,14 @@ export interface HabitLog {
   completed_date: string
   created_at: string
 }
+
+export interface QuranReflection {
+  id: string
+  user_id: string
+  ayah_reference: string
+  reflection: string | null
+  lessons_learned: string | null
+  actions_to_implement: string | null
+  created_at: string
+  updated_at: string
+}

@@ -41,12 +41,12 @@ export default function JournalList({ entries }: { entries: JournalEntry[] }) {
           placeholder="Search your reflections..."
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className="w-full pl-11 pr-4 py-3 rounded-2xl bg-white/80 border border-emerald-deep/10 text-emerald-deep placeholder-emerald-deep/40 focus:outline-none focus:ring-2 focus:ring-emerald-gold transition-all"
+          className="w-full pl-11 pr-4 py-3 rounded-2xl bg-app-panel border border-app-border text-emerald-deep placeholder-emerald-deep/40 focus:outline-none focus:ring-2 focus:ring-app-ring transition-all"
         />
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-16 bg-white/60 rounded-3xl">
+        <div className="text-center py-16 bg-app-panel/80 rounded-3xl">
           <BookOpen className="w-10 h-10 text-emerald-deep/20 mx-auto mb-3" />
           <p className="text-emerald-deep/50">
             {query ? 'No entries match your search' : 'No reflections yet'}
@@ -63,7 +63,7 @@ export default function JournalList({ entries }: { entries: JournalEntry[] }) {
             >
               <Link
                 href={`/journal/${entry.id}`}
-                className="block p-5 rounded-3xl bg-white/80 backdrop-blur-md border border-emerald-deep/5 hover:shadow-md hover:border-emerald-deep/15 transition-all"
+                className="block p-5 rounded-3xl bg-app-panel backdrop-blur-md border border-app-border hover:shadow-md hover:border-app-ring transition-all"
               >
                 <div className="flex items-center justify-between mb-2">
                   <h3 className="font-medium text-emerald-deep text-lg">

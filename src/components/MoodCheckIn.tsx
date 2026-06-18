@@ -45,7 +45,7 @@ export default function MoodCheckIn() {
   }
 
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+    <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
       <h2 className="text-lg font-serif text-emerald-deep mb-1">How are you, right now?</h2>
       <p className="text-sm text-emerald-deep/50 mb-5">There's no wrong answer</p>
 
@@ -57,7 +57,7 @@ export default function MoodCheckIn() {
             onClick={() => handleSelect(m.value)}
             disabled={saving}
             className={`flex items-center gap-2 px-4 py-3 rounded-2xl text-sm font-medium transition-all ${m.color} ${
-              selected === m.value ? 'ring-2 ring-emerald-gold' : ''
+              selected === m.value ? 'ring-2 ring-app-ring' : ''
             }`}
           >
             <span className="text-base">{m.emoji}</span>

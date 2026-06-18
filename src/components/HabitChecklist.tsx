@@ -62,7 +62,7 @@ export default function HabitChecklist({
 
   if (habits.length === 0) {
     return (
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-10 text-center shadow-sm border border-emerald-deep/5">
+      <div className="bg-app-panel backdrop-blur-md rounded-3xl p-10 text-center shadow-sm border border-app-border">
         <p className="text-emerald-deep/50">No habits set up yet</p>
       </div>
     )
@@ -73,7 +73,7 @@ export default function HabitChecklist({
       {Object.entries(grouped).map(([category, items]) => (
         <div
           key={category}
-          className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5"
+          className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border"
         >
           <h2 className="text-lg font-serif text-emerald-deep mb-4">
             {categoryLabels[category] || category}
@@ -89,17 +89,17 @@ export default function HabitChecklist({
                   disabled={pending === habit.id}
                   className={`w-full flex items-center justify-between px-4 py-3 rounded-2xl transition-all ${
                     isCompleted
-                      ? 'bg-emerald-deep/10 text-emerald-deep'
-                      : 'bg-emerald-deep/5 text-emerald-deep/70 hover:bg-emerald-deep/10'
+                      ? 'bg-app-field text-emerald-deep'
+                      : 'bg-app-field text-emerald-deep/70 hover:bg-app-field'
                   }`}
                 >
                   <span className="font-medium text-sm">{habit.name}</span>
                   <div
                     className={`w-6 h-6 rounded-full flex items-center justify-center transition-all ${
-                      isCompleted ? 'bg-emerald-deep' : 'bg-white border border-emerald-deep/20'
+                      isCompleted ? 'bg-app-accent' : 'bg-app-panel border border-app-border'
                     }`}
                   >
-                    {isCompleted && <Check className="w-3.5 h-3.5 text-white" />}
+                    {isCompleted && <Check className="w-3.5 h-3.5 text-app-accentText" />}
                   </div>
                 </motion.button>
               )

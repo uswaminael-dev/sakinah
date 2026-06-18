@@ -19,7 +19,7 @@ export default function MoodHistory({ logs }: { logs: MoodLog[] }) {
   if (logs.length === 0) return null
 
   return (
-    <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+    <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
       <h2 className="text-lg font-serif text-emerald-deep mb-4">Recent Check-ins</h2>
       <div className="space-y-2">
         {logs.slice(0, 10).map((log, i) => (
@@ -28,7 +28,7 @@ export default function MoodHistory({ logs }: { logs: MoodLog[] }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: i * 0.03 }}
-            className="flex items-center justify-between py-2 border-b border-emerald-deep/5 last:border-0"
+            className="flex items-center justify-between py-2 border-b border-app-border last:border-0"
           >
             <div className="flex items-center gap-3">
               <span className="text-xl">{moodEmoji[log.mood]}</span>

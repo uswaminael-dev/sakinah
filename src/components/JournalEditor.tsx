@@ -135,7 +135,7 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-emerald-deep/5 space-y-6"
+        className="bg-app-panel backdrop-blur-md rounded-3xl p-6 md:p-8 shadow-sm border border-app-border space-y-6"
       >
         <input
           type="text"
@@ -164,8 +164,8 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
                 onClick={() => setMood(m.value)}
                 className={`px-4 py-2 rounded-2xl text-sm font-medium transition-all flex items-center gap-2 ${
                   mood === m.value
-                    ? 'bg-emerald-deep text-white shadow-sm'
-                    : 'bg-emerald-deep/5 text-emerald-deep/70 hover:bg-emerald-deep/10'
+                    ? 'bg-app-accent text-app-accentText shadow-sm'
+                    : 'bg-app-field text-emerald-deep/70 hover:bg-app-field'
                 }`}
               >
                 <span>{m.emoji}</span>
@@ -185,7 +185,7 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
             max={5}
             value={energyLevel}
             onChange={(e) => setEnergyLevel(Number(e.target.value))}
-            className="w-full accent-emerald-deep"
+            className="w-full accent-app-accent"
           />
         </div>
 
@@ -199,7 +199,7 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
               value={gratitude}
               onChange={(e) => setGratitude(e.target.value)}
               rows={3}
-              className="w-full px-4 py-3 rounded-2xl bg-emerald-deep/5 text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-emerald-gold/40 resize-none text-sm"
+              className="w-full px-4 py-3 rounded-2xl bg-app-field text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-app-ring/40 resize-none text-sm"
             />
           </div>
           <div>
@@ -211,7 +211,7 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
               value={lessonsLearned}
               onChange={(e) => setLessonsLearned(e.target.value)}
               rows={3}
-              className="w-full px-4 py-3 rounded-2xl bg-emerald-deep/5 text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-emerald-gold/40 resize-none text-sm"
+              className="w-full px-4 py-3 rounded-2xl bg-app-field text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-app-ring/40 resize-none text-sm"
             />
           </div>
         </div>
@@ -225,14 +225,14 @@ export default function JournalEditor({ entry }: { entry: JournalEntry | null })
             value={duaRequests}
             onChange={(e) => setDuaRequests(e.target.value)}
             rows={2}
-            className="w-full px-4 py-3 rounded-2xl bg-emerald-deep/5 text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-emerald-gold/40 resize-none text-sm"
+            className="w-full px-4 py-3 rounded-2xl bg-app-field text-emerald-deep/80 placeholder-emerald-deep/30 focus:outline-none focus:ring-2 focus:ring-app-ring/40 resize-none text-sm"
           />
         </div>
 
         <div className="flex justify-end pt-2">
           <button
             onClick={handlePublish}
-            className="px-6 py-3 rounded-2xl bg-emerald-deep text-white font-medium hover:bg-emerald-light transition-all shadow-sm"
+            className="px-6 py-3 rounded-2xl bg-app-accent text-app-accentText font-medium hover:bg-app-accentHover transition-all shadow-sm"
           >
             Save Reflection
           </button>

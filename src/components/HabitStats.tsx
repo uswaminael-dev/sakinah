@@ -46,7 +46,7 @@ export default function HabitStats({
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+      <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-emerald-deep/60 font-medium">Today</span>
           <Target className="w-4 h-4 text-emerald-deep/40" />
@@ -57,7 +57,7 @@ export default function HabitStats({
         <p className="text-xs text-emerald-deep/50 mt-1">{completionRate}% complete</p>
       </div>
 
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+      <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-emerald-deep/60 font-medium">Best Streak</span>
           <Flame className="w-4 h-4 text-emerald-gold" />
@@ -66,7 +66,7 @@ export default function HabitStats({
         <p className="text-xs text-emerald-deep/50 mt-1">days in a row</p>
       </div>
 
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+      <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
         <div className="flex items-center justify-between mb-2">
           <span className="text-sm text-emerald-deep/60 font-medium">Active Habits</span>
           <Target className="w-4 h-4 text-emerald-deep/40" />

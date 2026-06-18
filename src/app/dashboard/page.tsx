@@ -3,6 +3,8 @@ import { format } from 'date-fns'
 import { BookOpen, Flame, Smile, Heart } from 'lucide-react'
 import StatCard from '@/components/StatCard'
 import RecentEntries from '@/components/RecentEntries'
+import Link from 'next/link'
+
 
 export default async function DashboardPage() {
   const supabase = await createClient()
@@ -16,6 +18,14 @@ export default async function DashboardPage() {
     .eq('is_draft', false)
     .order('created_at', { ascending: false })
     .limit(5)
+
+  // Recent Quran reflections
+  const { data: quranReflections } = await supabase
+    .from('quran_reflections')
+    .select('*')
+    .eq('user_id', user!.id)
+    .order('created_at', { ascending: false })
+    .limit(3)
 
   // Total entries count
   const { count: entryCount } = await supabase
@@ -84,9 +94,36 @@ export default async function DashboardPage() {
         />
       </div>
 
-      <div className="bg-white/80 backdrop-blur-md rounded-3xl p-6 shadow-sm border border-emerald-deep/5">
+      <div className="bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
         <h2 className="text-xl font-serif text-emerald-deep mb-4">Recent Reflections</h2>
         <RecentEntries entries={entries || []} />
+      </div>
+
+      <div className="mt-6 bg-app-panel backdrop-blur-md rounded-3xl p-6 shadow-sm border border-app-border">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-serif text-emerald-deep">Quran Reflections</h2>
+          <Link href="/quran-reflections" className="text-sm text-emerald-deep/50 hover:text-emerald-deep">
+            View all
+          </Link>
+        </div>
+        {quranReflections && quranReflections.length > 0 ? (
+          <div className="space-y-3">
+            {quranReflections.map((r) => (
+              <Link
+                key={r.id}
+                href={`/quran-reflections/${r.id}`}
+                className="block p-4 rounded-2xl hover:bg-app-field transition-all"
+              >
+                <p className="font-serif text-emerald-deep">{r.ayah_reference}</p>
+                {r.reflection && (
+                  <p className="text-sm text-emerald-deep/60 line-clamp-1 mt-1">{r.reflection}</p>
+                )}
+              </Link>
+            ))}
+          </div>
+        ) : (
+          <p className="text-sm text-emerald-deep/40">No reflections saved yet</p>
+        )}
       </div>
     </div>
   )

@@ -1,29 +1,101 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme {
-  --color-emerald-deep: #0B3D2E;
-  --color-emerald: #1B5E3F;
-  --color-emerald-light: #2F7A57;
-  --color-emerald-gold: #C9A861;
+:root,
+[data-theme="emerald-sakinah"] {
+  --app-bg: 246 248 244;
+  --app-text: 13 49 39;
+  --app-muted: 84 104 91;
+  --app-panel: 255 255 255;
+  --app-field: 236 242 235;
+  --app-border: 215 226 215;
+  --app-accent: 20 91 65;
+  --app-accent-hover: 34 119 84;
+  --app-accent-text: 255 255 255;
+  --app-ring: 188 143 76;
+  --app-danger: 185 44 52;
+  --app-chart: 188 143 76;
+  --color-emerald-deep: var(--app-text);
+  --color-emerald: var(--app-accent);
+  --color-emerald-light: var(--app-accent-hover);
+  --color-emerald-gold: var(--app-ring);
+}
 
-  --color-midnight-navy: #0F1729;
-  --color-midnight: #1A2438;
-  --color-midnight-silver: #B8C2D9;
+[data-theme="midnight-reflection"] {
+  --app-bg: 12 18 31;
+  --app-text: 228 234 242;
+  --app-muted: 157 172 191;
+  --app-panel: 24 33 50;
+  --app-field: 35 47 68;
+  --app-border: 58 73 96;
+  --app-accent: 104 139 177;
+  --app-accent-hover: 131 163 196;
+  --app-accent-text: 9 14 24;
+  --app-ring: 217 176 93;
+  --app-danger: 248 113 113;
+  --app-chart: 217 176 93;
+  --color-emerald-deep: var(--app-text);
+  --color-emerald: var(--app-accent);
+  --color-emerald-light: var(--app-accent-hover);
+  --color-emerald-gold: var(--app-ring);
+}
 
-  --color-desert-sand: #E8DCC8;
-  --color-desert-beige: #D4C4A8;
-  --color-desert-brown: #8B6F47;
+[data-theme="desert-serenity"] {
+  --app-bg: 248 244 235;
+  --app-text: 68 52 33;
+  --app-muted: 111 91 62;
+  --app-panel: 255 252 245;
+  --app-field: 241 231 214;
+  --app-border: 221 204 177;
+  --app-accent: 132 93 54;
+  --app-accent-hover: 158 111 64;
+  --app-accent-text: 255 255 255;
+  --app-ring: 184 126 65;
+  --app-danger: 178 62 55;
+  --app-chart: 184 126 65;
+  --color-emerald-deep: var(--app-text);
+  --color-emerald: var(--app-accent);
+  --color-emerald-light: var(--app-accent-hover);
+  --color-emerald-gold: var(--app-ring);
+}
 
-  --color-moonlight-grey: #E5E7EB;
-  --color-moonlight-white: #FAFAFA;
-  --color-moonlight-blue: #A8C5E0;
+[data-theme="moonlight"] {
+  --app-bg: 242 246 249;
+  --app-text: 39 55 70;
+  --app-muted: 92 110 126;
+  --app-panel: 255 255 255;
+  --app-field: 230 238 244;
+  --app-border: 206 219 229;
+  --app-accent: 55 101 139;
+  --app-accent-hover: 73 124 166;
+  --app-accent-text: 255 255 255;
+  --app-ring: 174 136 65;
+  --app-danger: 180 58 64;
+  --app-chart: 174 136 65;
+  --color-emerald-deep: var(--app-text);
+  --color-emerald: var(--app-accent);
+  --color-emerald-light: var(--app-accent-hover);
+  --color-emerald-gold: var(--app-ring);
+}
 
-  --color-garden-olive: #6B7B4F;
-  --color-garden-emerald: #3D6B52;
-  --color-garden-cream: #F5F0E1;
-
-  --font-sans: var(--font-inter), sans-serif;
-  --font-serif: var(--font-playfair), serif;
+[data-theme="quranic-garden"] {
+  --app-bg: 244 247 237;
+  --app-text: 47 68 50;
+  --app-muted: 91 111 76;
+  --app-panel: 255 255 250;
+  --app-field: 232 239 222;
+  --app-border: 211 225 198;
+  --app-accent: 70 112 78;
+  --app-accent-hover: 89 134 95;
+  --app-accent-text: 255 255 255;
+  --app-ring: 169 139 69;
+  --app-danger: 176 62 70;
+  --app-chart: 169 139 69;
+  --color-emerald-deep: var(--app-text);
+  --color-emerald: var(--app-accent);
+  --color-emerald-light: var(--app-accent-hover);
+  --color-emerald-gold: var(--app-ring);
 }
 
 html {
@@ -31,62 +103,12 @@ html {
 }
 
 body {
-  background-color: var(--app-bg);
-  color: var(--app-text);
+  background-color: rgb(var(--app-bg));
+  color: rgb(var(--app-text));
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(27, 94, 63, 0.2) transparent;
-}
-
-/* ===== THEME DEFINITIONS ===== */
-/* Each theme overrides the shared --app-* variables AND the emerald-deep / emerald-gold
-   tokens your components already use, so existing classes repaint automatically. */
-
-:root,
-[data-theme="emerald-sakinah"] {
-  --app-bg: #FAFAFA;
-  --app-text: #0B3D2E;
-  --color-emerald-deep: #0B3D2E;
-  --color-emerald: #1B5E3F;
-  --color-emerald-light: #2F7A57;
-  --color-emerald-gold: #C9A861;
-}
-
-[data-theme="midnight-reflection"] {
-  --app-bg: #0F1729;
-  --app-text: #E5E7EB;
-  --color-emerald-deep: #B8C2D9;
-  --color-emerald: #1A2438;
-  --color-emerald-light: #2A3650;
-  --color-emerald-gold: #8FA3C7;
-}
-
-[data-theme="desert-serenity"] {
-  --app-bg: #F5EFE3;
-  --app-text: #4A3A23;
-  --color-emerald-deep: #6B5436;
-  --color-emerald: #8B6F47;
-  --color-emerald-light: #A98B61;
-  --color-emerald-gold: #C9A861;
-}
-
-[data-theme="moonlight"] {
-  --app-bg: #F4F6F8;
-  --app-text: #2E3A4A;
-  --color-emerald-deep: #3D5A75;
-  --color-emerald: #5A7B9A;
-  --color-emerald-light: #7896B0;
-  --color-emerald-gold: #A8C5E0;
-}
-
-[data-theme="quranic-garden"] {
-  --app-bg: #F5F0E1;
-  --app-text: #3D4A2E;
-  --color-emerald-deep: #3D6B52;
-  --color-emerald: #6B7B4F;
-  --color-emerald-light: #87966B;
-  --color-emerald-gold: #B5A876;
+  scrollbar-color: rgb(var(--app-accent) / 0.28) transparent;
 }
